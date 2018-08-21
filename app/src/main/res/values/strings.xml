@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ScienceTestApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_save">Save</string>
+    <string name="action_saveTo">Save To</string>
+    <string name="action_exportExcel">Export Excel</string>
+</resources>
