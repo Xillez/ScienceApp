@@ -24,6 +24,7 @@ public class MenuMgr
 
     public boolean handleMenuEvent(MenuItem item)
     {
+        Log.e(Logging.LOG_ERR_TAG, "!!!!!!! MenuEvent!");
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.

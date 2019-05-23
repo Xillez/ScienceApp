@@ -2,6 +2,7 @@ package com.example.kent.sciencetestapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -37,6 +38,7 @@ public class NewProject extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
+        Log.e(Logging.LOG_ERR_TAG, "!!!!!!!!!!!!! MenuOptionSelection!");
         // Try handling it. If not handled relay to super class
         if (!menuMgr.handleMenuEvent(item))
             return super.onOptionsItemSelected(item);
