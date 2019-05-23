@@ -17,6 +17,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 public class SpreadSheetMgr
 {
@@ -35,7 +36,10 @@ public class SpreadSheetMgr
     {
         Workbook book = null;
         if (context.getFilesDir().exists() && context.getFilesDir().canRead() && context.getFilesDir().canWrite())
+        {
             file = new File(context.getFilesDir(), FILE_PATH_XLSX);
+            Log.e(Logging.LOG_ERR_TAG, "!!!!!!!!!!!!! FilesDir passed!");
+        }
 
         try
         {

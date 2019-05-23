@@ -10,8 +10,12 @@ import com.example.kent.sciencetestapp.R;
 
 public class MenuMgr
 {
+    AppCompatActivity activity;
+
     public boolean createMenu(AppCompatActivity activity, Menu menu)
     {
+        this.activity = activity;
+
         // Inflate the menu; this adds items to the action bar if it is present.
         activity.getMenuInflater().inflate(R.menu.menu_main, menu);
         Log.i(Logging.LOG_INFO_TAG,"Nr Items in menu: " + menu.size());
@@ -40,6 +44,8 @@ public class MenuMgr
             case R.id.action_exportExcel:
             {
                 Log.i(Logging.LOG_INFO_TAG, "Export clicked!");
+                SpreadSheetMgr sheetMgr = new SpreadSheetMgr(this.activity);
+                sheetMgr.test();
                 return true;
             }
 
