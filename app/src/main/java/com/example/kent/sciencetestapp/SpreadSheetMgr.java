@@ -4,6 +4,7 @@ package com.example.kent.sciencetestapp;
 import android.app.Activity;
 import android.util.Log;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -21,7 +22,7 @@ import java.util.logging.Logger;
 
 public class SpreadSheetMgr
 {
-    private static final String FILE_PATH_XLSX = "./xlsxtest.xlsx";
+    private static final String FILE_PATH_XLSX = "./xlsxtest.xls";
     private Activity context;
     private File file;
     private FileOutputStream fileOut = null;
@@ -34,10 +35,15 @@ public class SpreadSheetMgr
 
     public void test()
     {
-        Workbook book = null;
-        if (context.getFilesDir().exists() && context.getFilesDir().canRead() && context.getFilesDir().canWrite())
+        Workbook book = new HSSFWorkbook();
+        Sheet sheet1 = book.createSheet("Test");
+        Row row1 = sheet1.createRow(0);
+        Cell cell1 = row1.createCell(0);
+        cell1.setCellValue("PEEKABOO!");
+
+        //if (context.getFilesDir().exists() && context.getFilesDir().canRead() && context.getFilesDir().canWrite())
         {
-            file = new File(context.getFilesDir(), FILE_PATH_XLSX);
+            file = new File(context.getExternalFilesDir(null), FILE_PATH_XLSX);
             Log.e(Logging.LOG_ERR_TAG, "!!!!!!!!!!!!! FilesDir passed!");
         }
 
@@ -46,17 +52,12 @@ public class SpreadSheetMgr
             fileOut = new FileOutputStream(file);
             /*fileOut.close();
             fileIn = new FileInputStream(file);*/
-
-            book = WorkbookFactory.create(file);
             book.write(fileOut);
             fileOut.close();
         } catch (FileNotFoundException e)
         {
             e.printStackTrace();
         } catch (IOException e)
-        {
-            e.printStackTrace();
-        } catch (InvalidFormatException e)
         {
             e.printStackTrace();
         }
