@@ -1,14 +1,7 @@
 package com.example.kent.sciencetestapp;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.IBinder;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -52,14 +45,6 @@ public class ProjectsActivity extends AppCompatActivity
         // Add toolbar
         toolbarMgr.makeToolBar(this, R.id.toolbar, false, null);
 
-        // Add new button for adding a new project
-        FloatingActionButton newProjectButton = findViewById(R.id.newProjectButton);
-        newProjectButton.setOnClickListener(v -> {
-            // Start new project activity.
-            Intent startNewProject = new Intent(this, NewProject.class);
-            startActivity(startNewProject);
-        });
-
         /*SpreadSheetMgr sheet = new SpreadSheetMgr(this);
         sheet.test();*/
     }
@@ -68,7 +53,7 @@ public class ProjectsActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu)
     {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_project, menu);
         return true;
     }
 

@@ -5,9 +5,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.kent.sciencetestapp.Logging;
-import com.example.kent.sciencetestapp.R;
-
 public class MenuMgr
 {
     AppCompatActivity activity;
@@ -17,19 +14,24 @@ public class MenuMgr
         this.activity = activity;
 
         // Inflate the menu; this adds items to the action bar if it is present.
-        activity.getMenuInflater().inflate(R.menu.menu_main, menu);
+        activity.getMenuInflater().inflate(R.menu.menu_project, menu);
         Log.i(Logging.LOG_INFO_TAG,"Nr Items in menu: " + menu.size());
         return true;
     }
 
     public boolean handleMenuEvent(MenuItem item)
     {
-        Log.e(Logging.LOG_ERR_TAG, "!!!!!!! MenuEvent!");
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId())
         {
+            case R.id.action_new:
+            {
+                Log.i(Logging.LOG_INFO_TAG, "New clicked!");
+                return true;
+            }
+
             case R.id.action_save:
             {
                 Log.i(Logging.LOG_INFO_TAG, "Save clicked!");

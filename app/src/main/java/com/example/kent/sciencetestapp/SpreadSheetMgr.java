@@ -41,11 +41,7 @@ public class SpreadSheetMgr
         Cell cell1 = row1.createCell(0);
         cell1.setCellValue("PEEKABOO!");
 
-        //if (context.getFilesDir().exists() && context.getFilesDir().canRead() && context.getFilesDir().canWrite())
-        {
-            file = new File(context.getExternalFilesDir(null), FILE_PATH_XLSX);
-            Log.e(Logging.LOG_ERR_TAG, "!!!!!!!!!!!!! FilesDir passed!");
-        }
+        file = new File(context.getExternalFilesDir(null), FILE_PATH_XLSX);
 
         try
         {
@@ -62,34 +58,20 @@ public class SpreadSheetMgr
             e.printStackTrace();
         }
 
-        if (book != null)
+        // Write the output to a file
+        try
         {
-            Sheet sheet = book.createSheet("TestSheet");
+            book.write(fileOut);
+            fileOut.close();
 
-            Row row = sheet.createRow(0);
-
-            Cell cell = row.createCell(0);
-
-            cell.setCellValue("HELLUUUUUU!!!!!");
-
-            // Write the output to a file
-            try
-            {
-                book.write(fileOut);
-                fileOut.close();
-
-                // Closing the workbook
-                book.close();
-            } catch (FileNotFoundException e)
-            {
-                e.printStackTrace();
-            } catch (IOException e)
-            {
-                e.printStackTrace();
-            }
-
-            Log.i("KENT_", sheet.getSheetName());
+            // Closing the workbook
+            book.close();
+        } catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
         }
-        //sheet
     }
 }
