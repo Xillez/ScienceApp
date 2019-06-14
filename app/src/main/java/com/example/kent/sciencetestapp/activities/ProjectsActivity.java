@@ -1,9 +1,14 @@
-package com.example.kent.sciencetestapp;
+package com.example.kent.sciencetestapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.kent.sciencetestapp.R;
+import com.example.kent.sciencetestapp.utils.ToolbarMgr;
 
 public class ProjectsActivity extends AppCompatActivity
 {
@@ -44,6 +49,12 @@ public class ProjectsActivity extends AppCompatActivity
 
         // Add toolbar
         toolbarMgr.makeToolBar(this, R.id.toolbar, false, null);
+
+        FloatingActionButton fab = findViewById(R.id.newProjectButton);
+        fab.setOnClickListener(view -> {
+            Intent newProject = new Intent(getApplicationContext(), NewProject.class);;
+            startActivity(newProject);
+        });
 
         /*SpreadSheetMgr sheet = new SpreadSheetMgr(this);
         sheet.test();*/

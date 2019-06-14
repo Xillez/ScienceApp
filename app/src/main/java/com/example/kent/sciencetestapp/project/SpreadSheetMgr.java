@@ -1,4 +1,4 @@
-package com.example.kent.sciencetestapp;
+package com.example.kent.sciencetestapp.project;
 
 
 import android.app.Activity;
@@ -28,7 +28,7 @@ public class SpreadSheetMgr
     private FileOutputStream fileOut = null;
     private FileInputStream fileIn = null;
 
-    SpreadSheetMgr(Activity context)
+    public SpreadSheetMgr(Activity context)
     {
         this.context = context;
     }
@@ -40,32 +40,24 @@ public class SpreadSheetMgr
         Row row1 = sheet1.createRow(0);
         Cell cell1 = row1.createCell(0);
         cell1.setCellValue("PEEKABOO!");
+    }
 
+    public void loadWorkbook(String name)
+    {
+        //
+    }
+
+    public void writeToFile(String name)
+    {
         file = new File(context.getExternalFilesDir(null), FILE_PATH_XLSX);
-
-        try
-        {
-            fileOut = new FileOutputStream(file);
-            /*fileOut.close();
-            fileIn = new FileInputStream(file);*/
-            book.write(fileOut);
-            fileOut.close();
-        } catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
 
         // Write the output to a file
         try
         {
-            book.write(fileOut);
+            fileOut = new FileOutputStream(file);
+            //book.write(fileOut);
             fileOut.close();
-
-            // Closing the workbook
-            book.close();
+            //book.close();
         } catch (FileNotFoundException e)
         {
             e.printStackTrace();
