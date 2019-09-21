@@ -1,9 +1,12 @@
-package com.example.kent.sciencetestapp;
+package com.example.kent.sciencetestapp.utils;
 
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.kent.sciencetestapp.R;
+import com.example.kent.sciencetestapp.project.SpreadSheetMgr;
 
 public class MenuMgr
 {
@@ -32,7 +35,7 @@ public class MenuMgr
                 return true;
             }
 
-            case R.id.action_save:
+            /*case R.id.action_save:
             {
                 Log.i(Logging.LOG_INFO_TAG, "Save clicked!");
                 return true;
@@ -42,7 +45,7 @@ public class MenuMgr
             {
                 Log.i(Logging.LOG_INFO_TAG, "SaveTo clicked!");
                 return true;
-            }
+            }*/
 
             case R.id.action_exportExcel:
             {

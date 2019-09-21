@@ -1,4 +1,4 @@
-package com.example.kent.sciencetestapp;
+package com.example.kent.sciencetestapp.project.setup;
 
 import android.app.Activity;
 import android.app.Service;

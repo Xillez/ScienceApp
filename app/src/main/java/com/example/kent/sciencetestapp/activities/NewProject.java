@@ -1,10 +1,13 @@
-package com.example.kent.sciencetestapp;
+package com.example.kent.sciencetestapp.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.kent.sciencetestapp.utils.MenuMgr;
+import com.example.kent.sciencetestapp.R;
+import com.example.kent.sciencetestapp.utils.ToolbarMgr;
 
 public class NewProject extends AppCompatActivity
 {
