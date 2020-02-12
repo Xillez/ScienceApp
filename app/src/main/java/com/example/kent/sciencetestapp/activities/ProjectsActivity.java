@@ -4,15 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.kent.sciencetestapp.R;
+import com.example.kent.sciencetestapp.nbmd.NBMData;
+import com.example.kent.sciencetestapp.project.Project;
+import com.example.kent.sciencetestapp.utils.Logging;
 import com.example.kent.sciencetestapp.utils.ToolbarMgr;
 
 public class ProjectsActivity extends AppCompatActivity
 {
     public ToolbarMgr toolbarMgr = new ToolbarMgr();
+    private Project project = new Project();
 
     /*protected ServiceConnection mServerConn = new ServiceConnection() {
         @Override
@@ -56,6 +61,8 @@ public class ProjectsActivity extends AppCompatActivity
             startActivity(newProject);
         });
 
+
+
         /*SpreadSheetMgr sheet = new SpreadSheetMgr(this);
         sheet.test();*/
     }
@@ -79,6 +86,14 @@ public class ProjectsActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings)
         {
+            NBMData nbmData = new NBMData();
+            nbmData.add("testA", "test", null, NBMData.BUILD_PATH_IF_INVALID);
+            //nbmData.add("testA/testD", "test2", null, NBMData.BUILD_PATH_IF_INVALID);
+            //nbmData.add("testA", "test3", null, NBMData.BUILD_PATH_IF_INVALID);
+            //nbmData.add("", "test4", null, NBMData.BUILD_PATH_IF_INVALID);
+            String str = nbmData.toString();
+            Log.d(Logging.LOG_INFO_TAG, str);
+
             return true;
         }
 
